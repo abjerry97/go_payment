@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"log"
 	"os"
 	"os/signal"
 	"syscall"
@@ -10,12 +9,13 @@ import (
 	"github.com/abjerry97/go_payment/internal/processors"
 	"github.com/abjerry97/go_payment/internal/server"
 	"github.com/abjerry97/go_payment/internal/tools"
+	log "github.com/sirupsen/logrus"
 )
 
 func main() {
 	config := tools.LoadConfig()
 	ctx := context.Background()
-
+	log.SetReportCaller(true)
 	db, err := tools.NewDatabaseService(ctx, config.DatabaseURL)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)

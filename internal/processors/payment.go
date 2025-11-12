@@ -3,13 +3,13 @@ package processors
 import (
 	"context"
 	"fmt"
-	"log"
 	"sync"
 	"time"
 
 	"github.com/abjerry97/go_payment/api"
 	"github.com/abjerry97/go_payment/internal/tools"
 	"github.com/go-redis/redis/v8"
+	log "github.com/sirupsen/logrus"
 )
 
 type PaymentProcessor struct {

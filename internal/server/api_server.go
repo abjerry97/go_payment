@@ -2,7 +2,6 @@ package server
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"time"
 
@@ -10,6 +9,7 @@ import (
 	"github.com/abjerry97/go_payment/internal/processors"
 	"github.com/abjerry97/go_payment/internal/tools"
 	"github.com/gin-gonic/gin"
+	log "github.com/sirupsen/logrus"
 )
 
 type APIServer struct {
@@ -186,8 +186,7 @@ func (s *APIServer) handleListCustomers(c *gin.Context) {
 	`
 
 	rows, err := s.db.Pool.Query(ctx, query, limit, offset)
-	fmt.Printf("------------------------------------------")
-	fmt.Print(err)
+	log.Error(err)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch customers"})
 		return

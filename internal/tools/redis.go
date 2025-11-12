@@ -4,11 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
 	"time"
 
 	"github.com/abjerry97/go_payment/api"
 	"github.com/go-redis/redis/v8"
+	log "github.com/sirupsen/logrus"
 )
 
 type RedisService struct {

@@ -3,11 +3,11 @@ package tools
 import (
 	"context"
 	"fmt"
-	"log"
 	"time"
 
 	"github.com/abjerry97/go_payment/api"
 	"github.com/jackc/pgx/v5/pgxpool"
+	log "github.com/sirupsen/logrus"
 )
 
 type DatabaseService struct {
